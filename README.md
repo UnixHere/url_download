@@ -6,6 +6,7 @@ I made this for fun because I had some free time. ***Most likely I woun't finish
 * loading bar
 * proper url handling so that you donw have to manually enter the domain name in the code
 * option to download from either chunklist or playlist
+* finish filedialog window
 * make a gui
 * make gui to choose which chunklist from playlist to download
 * and much more
