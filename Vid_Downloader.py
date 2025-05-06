@@ -7,18 +7,10 @@ import tkinter as tk
 from tkinter import filedialog
 
 proxies = {
-    "http": "http://121.136.189.231:60001",
-    "https": "http://121.136.189.231:60001",
+    "http": "http://121.136.189.231:60001",   # Add your proxie if you want to try and mask the origin of the request
+    "https": "http://121.136.189.231:60001",   
 }
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0'}
-user_agents =[
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Safari/605.1.15']
+user_agents =['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36']  # Add your agents this is just an example
 headers = {'User-Agent': random.choice(user_agents)}
 def open_m3u8():
     root = tk.Tk()
@@ -33,7 +25,7 @@ def download_from_m3u8(master):
         for segment in playlist.data['segments']:
             print(segment['uri'])
             url = segment['uri']
-            r = requests.get("https://n11.stv.livebox.sk" + url, headers=headers) # GOTTA CHANGE MAIN URL BEFORE USE
+            r = requests.get("SCHEME + DOMAIN NAME" + url, headers=headers) # GOTTA CHANGE MAIN URL BEFORE USE
             f.write(r.content)
             #time.sleep(1)
     print('finished')
