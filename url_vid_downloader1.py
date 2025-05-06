@@ -1,3 +1,7 @@
+"""
+This File Was used for testing new features might not work
+"""
+
 import requests
 import m3u8
 import subprocess
@@ -56,15 +60,15 @@ else:
     print("No file selected")
 """
 chunk_size = 256
-url = "https://www.stvr.sk/embed/archive/15503/154737"
-url = "https://n11.stv.livebox.sk/vod/stv-tv-arch/90d365309baaaf1178cf62e20114dc7f/a510/00/0004/000424//00042428-1.mp4"
+url = "Enter Your url"
+url = "Enter Your url""
 r = requests.get(url, stream=True)
 with open("cestou.mp4", "wb") as f:
     for chunk in r.iter_content(chunk_size=chunk_size):
         f.write(chunk)
 """
 
-url = "https://n12.stv.livebox.sk/stv-tv-arch/_definst_/smil:a510/00/0004/000424/00042427.smil/playlist.m3u8?auth=b64%3AYTUxMC8wMC8wMDA0LzAwMDQyNC8wMDA0MjQyOHwxNzQ1MDczMjA0fDI2ZmNjNTBiMDAwNDZiOTI2ZDYyZGZiZmE0MDJhMTMyNDU4ODA4MGI%3D"
+url = "Enter Your url"
 r = requests.get(url)
 print(r.text)
 
@@ -82,15 +86,15 @@ print('all\n',playlist.data)
 print('segments\n',playlist.data['segments'])
 print('first\n',playlist.data['segments'][0])
 print('url\n',playlist.data['segments'][0]['uri'])
-r = requests.get(("https://n12.stv.livebox.sk" + playlist.data['segments'][0]['uri']))
+r = requests.get(("domain url" + playlist.data['segments'][0]['uri']))
 
 with open("video.ts", 'wb') as f:
     for segment in playlist.data['segments']:
         url = segment['uri']
-        r = requests.get("https://n12.stv.livebox.sk" + url) 
+        r = requests.get("domain url" + url) 
         f.write(r.content)
 
-#subprocess.check_call(['ffmpeg', '-i', 'video.ts', 'video.mp4'], cwd=dir_path)
+#subprocess.check_call(['ffmpeg', '-i', 'video.ts', 'video.mp4'], cwd=dir_path)       # you can use ffmpeg to convert .ts to .mp4 format
 #subprocess.run(['ffmpeg', '-i', 'video.ts', 'video.mp4'])
 print('finished')
 '''
